@@ -12,10 +12,12 @@ public class Calculator {
             parser = new Parser(st);
             List<String> polish = parser.getRes();
             return getValue(polish);
+        } else if (checkStringForTrig(st)) {
+            Trigonometry trigonometry = new Trigonometry();
+            return trigonometry.calculate(st);
         } else {
             return -1.111111;
         }
-
     }
 
     private double getValue(List<String> polish) {
@@ -50,5 +52,10 @@ public class Calculator {
     public boolean checkString(String st) {
         return Pattern.matches("[[0-9]*\\+*\\-*\\**\\/*\\(*\\)*]*", st);
     }
+
+    public boolean checkStringForTrig(String st) {
+        return Pattern.matches("(sin|cos|tan|ctg)[0-9]+", st);
+    }
+
 }
 
