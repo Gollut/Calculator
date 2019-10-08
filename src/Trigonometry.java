@@ -11,8 +11,8 @@ public class Trigonometry {
                 return Math.cos(Double.valueOf(number));
             case "tan":
                 return Math.tan(Double.valueOf(number));
-
-
+            case "ctg":
+                return 1.0 / Math.tan(Double.valueOf(number));
         }
         return -1.111111;
     }
